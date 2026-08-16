@@ -1,0 +1,78 @@
+name: Deploy to AWS Lambda
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Create Lambda deployment package
+        run: |
+          mkdir -p lambda-dist
+          cp server.js lambda-dist/
+          cp package.json lambda-dist/
+          cp package-lock.json lambda-dist/
+          cp .env lambda-dist/ 2>/dev/null || true
+          cd lambda-dist
+          npm install --production
+          zip -r lambda-function.zip .
+          cd ..
+          mv lambda-dist/lambda-function.zip .
+      
+      - name: Deploy to AWS Lambda
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          RAZORPAY_KEY_ID: ${{ secrets.RAZORPAY_KEY_ID }}
+          RAZORPAY_KEY_SECRET: ${{ secrets.RAZORPAY_KEY_SECRET }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          npm install -g aws-cli
+          aws lambda create-function \
+            --function-name muted-website-backend \
+            --runtime nodejs18.x \
+            --role arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/lambda-execution-role \
+            --handler server.handler \
+            --zip-file fileb://lambda-function.zip \
+            --environment Variables={RAZORPAY_KEY_ID=$RAZORPAY_KEY_ID,RAZORPAY_KEY_SECRET=$RAZORPAY_KEY_SECRET,SMTP_USER=$SMTP_USER,SMTP_PASS=$SMTP_PASS} \
+            --timeout 60 \
+            --memory-size 256 2>/dev/null || \
+          aws lambda update-function-code \
+            --function-name muted-website-backend \
+            --zip-file fileb://lambda-function.zip && \
+          aws lambda update-function-configuration \
+            --function-name muted-website-backend \
+            --environment Variables={RAZORPAY_KEY_ID=$RAZORPAY_KEY_ID,RAZORPAY_KEY_SECRET=$RAZORPAY_KEY_SECRET,SMTP_USER=$SMTP_USER,SMTP_PASS=$SMTP_PASS} \
+            --timeout 60 \
+            --memory-size 256
+      
+      - name: Create/Update API Gateway
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          aws apigateway create-rest-api \
+            --name muted-website-api \
+            --description "Muted Website API" 2>/dev/null || echo "API already exists"
+      
+      - name: Deployment Success
+        run: echo "✅ Deployment to AWS Lambda complete!"
