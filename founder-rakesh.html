@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakesh K R - COO | Muted Technology</title>
+  <meta name="description" content="Meet Rakesh K R, Chief Operating Officer of Muted Technology, leading operations and business execution.">
+  <meta name="author" content="Muted Technology Private Limited">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #080808; }
+    
+    .founder-profile { animation: fadeIn 0.6s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+    .profile-header { position: sticky; top: 0; z-index: 100; background: rgba(8,8,8,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 20px 0; }
+    .profile-back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(200,169,110,0.8); text-decoration: none; font-weight: 600; transition: all 0.3s ease; font-size: 14px; }
+    .profile-back-link:hover { color: rgba(200,169,110,1); gap: 12px; }
+    
+    .profile-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 100px 0 80px; }
+    .profile-photo-section { display: flex; justify-content: center; }
+    .profile-photo { width: 360px; height: 360px; border-radius: 24px; background: linear-gradient(135deg,rgba(100,150,255,0.15) 0%,rgba(200,169,110,0.1) 100%); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4); overflow: hidden; }
+    .profile-photo-placeholder { font-size: 140px; font-weight: 800; color: rgba(200,169,110,0.4); }
+    
+    .profile-info h1 { font-size: 52px; font-weight: 800; color: var(--text); margin-bottom: 12px; letter-spacing: -1px; }
+    .profile-role { font-size: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,0.8); margin-bottom: 12px; }
+    .profile-experience { display: inline-block; padding: 8px 16px; background: linear-gradient(135deg,rgba(100,150,255,0.2) 0%,rgba(100,150,255,0.05) 100%); border: 1px solid rgba(100,150,255,0.2); border-radius: 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(100,150,255,0.9); margin-bottom: 32px; }
+    
+    .profile-section { margin-bottom: 80px; }
+    .profile-section h2 { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 24px; letter-spacing: -0.5px; }
+    .profile-section p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
+    .profile-section p:last-of-type { margin-bottom: 0; }
+    
+    .expertise-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .expertise-list li { font-size: 16px; line-height: 1.6; color: var(--text-muted); padding-left: 24px; position: relative; }
+    .expertise-list li::before { content: '◆'; position: absolute; left: 0; color: rgba(200,169,110,0.6); font-size: 10px; }
+    
+    .responsibilities-list { list-style: none; padding: 0; margin: 0; }
+    .responsibilities-list li { font-size: 16px; line-height: 1.8; color: var(--text-muted); padding-left: 24px; position: relative; margin-bottom: 12px; }
+    .responsibilities-list li::before { content: '→'; position: absolute; left: 0; color: rgba(200,169,110,0.6); }
+    
+    .profile-connect { display: flex; gap: 16px; margin-top: 40px; }
+    .connect-button { padding: 14px 32px; border-radius: 12px; background: rgba(100,150,255,0.15); border: 1px solid rgba(100,150,255,0.3); color: rgba(100,150,255,0.9); text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; }
+    .connect-button:hover { background: rgba(100,150,255,0.25); border-color: rgba(100,150,255,0.5); }
+    
+    @media (max-width: 1024px) {
+      .profile-hero { grid-template-columns: 1fr; gap: 60px; padding: 80px 0 60px; }
+      .profile-photo { width: 280px; height: 280px; }
+      .profile-photo-placeholder { font-size: 100px; }
+      .profile-info h1 { font-size: 44px; }
+    }
+    
+    @media (max-width: 768px) {
+      .profile-hero { padding: 60px 0 40px; }
+      .profile-info h1 { font-size: 36px; }
+      .profile-role { font-size: 16px; letter-spacing: 1.5px; }
+      .profile-section h2 { font-size: 24px; }
+      .profile-section { margin-bottom: 60px; }
+      .expertise-list { grid-template-columns: 1fr; gap: 12px; }
+      .profile-connect { flex-direction: column; }
+      .connect-button { width: 100%; }
+    }
+    
+    @media (max-width: 480px) {
+      .profile-header { padding: 16px 0; }
+      .profile-back-link { font-size: 12px; }
+      .profile-hero { padding: 40px 0 30px; }
+      .profile-photo { width: 200px; height: 200px; }
+      .profile-photo-placeholder { font-size: 70px; }
+      .profile-info h1 { font-size: 28px; margin-bottom: 8px; }
+      .profile-role { font-size: 14px; letter-spacing: 1.2px; }
+      .profile-experience { font-size: 11px; padding: 6px 12px; margin-bottom: 24px; }
+      .profile-section h2 { font-size: 20px; margin-bottom: 16px; }
+      .profile-section p { font-size: 15px; line-height: 1.6; }
+      .expertise-list li, .responsibilities-list li { font-size: 15px; }
+      .profile-section { margin-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="founder-profile">
+    <!-- Header -->
+    <div class="profile-header">
+      <div class="container">
+        <a href="index.html#founders" class="profile-back-link">← Back to Founders</a>
+      </div>
+    </div>
+
+    <!-- Profile Content -->
+    <main class="container" style="max-width:1200px">
+      <!-- Hero Section -->
+      <section class="profile-hero">
+        <div class="profile-photo-section">
+          <div class="profile-photo">
+            <div class="profile-photo-placeholder">RK</div>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h1>Rakesh K R</h1>
+          <p class="profile-role">Chief Operating Officer</p>
+          <span class="profile-experience">1+ Year Experience</span>
+          
+          <div class="profile-section" style="margin-bottom: 32px; margin-top: 40px;">
+            <h2 style="font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--text); margin-bottom: 16px;">About</h2>
+            <p style="margin: 0; font-size: 16px; line-height: 1.8; color: var(--text-muted);">Rakesh is the Co-Founder and Chief Operating Officer of Muted Technology. He oversees operations, manufacturing coordination, procurement, vendor management, logistics, and business execution, ensuring efficient product development and scalable operations.</p>
+          </div>
+          <div class="profile-section" style="margin-bottom: 0; margin-top: 32px;">
+            <h2 style="font-size: 16px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(200,169,110,0.8); margin-bottom: 16px;">Location</h2>
+            <p style="margin: 0; font-size: 16px;">Bengaluru, Karnataka, India</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="profile-section">
+        <h2>About</h2>
+        <p>Oversees operations, manufacturing coordination, and supply chain execution. Drives efficiency in procurement, vendor management, and logistics to enable scalable production.</p>
+      </section>
+
+      <!-- Engineering Philosophy -->
+      <section class="profile-section">
+        <h2>Philosophy</h2>
+        <p>Operational excellence enables product excellence—every process optimized for quality and scale.</p>
+      </section>
+
+      <!-- Core Expertise Section -->
+      <section class="profile-section">
+        <h2>Core Expertise</h2>
+        <ul class="expertise-list">
+          <li>Operations Management</li>
+          <li>Supply Chain & Procurement</li>
+          <li>Manufacturing Coordination</li>
+          <li>Vendor Management</li>
+          <li>Production Scaling</li>
+        </ul>
+      </section>
+
+      <!-- Leadership Responsibilities Section -->
+      <section class="profile-section">
+        <h2>Focus Areas</h2>
+        <ul class="responsibilities-list">
+          <li>Daily Operations & Execution</li>
+          <li>Procurement & Cost Optimization</li>
+          <li>Manufacturing & Logistics</li>
+          <li>Vendor & Supplier Relationships</li>
+          <li>Production Planning & Scale</li>
+        </ul>
+      </section>
+
+      <!-- Connect Section -->
+      <section class="profile-section">
+        <h2>Connect</h2>
+        <div class="profile-connect">
+          <a href="https://www.linkedin.com/in/xxxxxxxx" target="_blank" rel="noopener noreferrer" class="connect-button">LinkedIn</a>
+          <a href="mailto:rakesh@example.com" class="connect-button">Email</a>
+          <a href="tel:+91XXXXXXXXXX" class="connect-button">Call</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-top: 120px;">
+      <div class="top-glow"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-desc">Muted Technology | Redefining indoor air purification through deep-tech engineering and sustainable design.</p>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 24px;">&copy; 2024 Muted Technology Private Limited. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+      
+      <div class="founder-hero">
+        <div class="founder-hero-image">
+          <div class="hero-placeholder">RK</div>
+        </div>
+        <div class="founder-hero-content">
+          <h1>Rakesh K R</h1>
+          <p class="hero-role">Chief Operating Officer</p>
+          <p class="hero-experience">1+ Year Experience</p>
+          <p class="hero-location">📍 Bengaluru, Karnataka, India</p>
+          <a href="https://www.linkedin.com/in/xxxxxxxx" target="_blank" rel="noopener noreferrer" class="linkedin-link">Connect on LinkedIn →</a>
+        </div>
+      </div>
+
+      <div class="founder-story">
+        <div class="story-section">
+          <h2>About</h2>
+          <p>Rakesh K R is the Chief Operating Officer and co-founder of Muted Technology, responsible for orchestrating all operational and business execution functions. With expertise in manufacturing coordination, vendor management, procurement, and supply chain optimization, Rakesh ensures seamless operations from product development to customer delivery.</p>
+          <p>An operations leader with a results-driven mindset, Rakesh manages the complex logistics and coordination required to scale Muted Technology while maintaining the highest standards of quality and efficiency. His focus on operational excellence ensures that the company's ambitious vision translates into real-world execution.</p>
+        </div>
+
+        <div class="story-section">
+          <h2>Operational Excellence</h2>
+          <p>Rakesh's operational strategy is built on efficiency, reliability, and strategic partnerships:</p>
+          <ul class="story-list">
+            <li><strong>Manufacturing Coordination:</strong> Orchestrating production workflows and quality control</li>
+            <li><strong>Supply Chain Management:</strong> Building resilient vendor relationships and procurement pipelines</li>
+            <li><strong>Scalability Planning:</strong> Designing operations for sustainable growth and scaling</li>
+            <li><strong>Cost Optimization:</strong> Balancing quality with operational efficiency</li>
+            <li><strong>Delivery Excellence:</strong> Ensuring on-time and perfect product delivery</li>
+          </ul>
+        </div>
+
+        <div class="story-section">
+          <h2>Operations Philosophy</h2>
+          <p>Rakesh believes that exceptional operations are invisible to the customer, but critical to company success. He leads operations with a commitment to building systems that scale, maintain quality under pressure, and enable the product and business teams to focus on innovation and growth. For Rakesh, operational excellence is the foundation of customer satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section style="padding:80px 0;text-align:center;border-top:1px solid var(--border)">
+    <div class="container">
+      <h2 style="font-size:32px;margin-bottom:24px">Interested in learning more?</h2>
+      <p style="color:var(--text-muted);margin-bottom:32px;font-size:16px">Get in touch with the Muted team</p>
+      <a href="index.html#contact" class="hero-button" style="display:inline-block">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="top-glow"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="navbar-logo" style="margin-bottom:16px">
+            <img src="images/logo.svg" alt="Muted Technology" style="height:60px">
+          </div>
+          <p class="footer-brand-desc">Redefining indoor air purification through deep-tech engineering and sustainable design.</p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Product</h4>
+          <a href="index.html#product">Muted Aero One</a>
+          <a href="index.html#comparison">Compare</a>
+          <a href="index.html#preorder">Pre-order</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="index.html#founders">Founders</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="refund-policy.html">Refund Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Muted Technology Private Limited. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .founder-detail { padding: 80px 0; min-height: 100vh; }
+    .back-link { display: inline-block; margin-bottom: 40px; color: rgba(200,169,110,0.8); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .back-link:hover { color: rgba(200,169,110,1); }
+    
+    .founder-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+    .founder-hero-image { width: 100%; aspect-ratio: 1; border-radius: 24px; background: linear-gradient(135deg,rgba(100,150,255,0.15) 0%,rgba(200,169,110,0.1) 100%); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; }
+    .hero-placeholder { font-size: 120px; font-weight: 800; color: rgba(200,169,110,0.4); }
+    
+    .founder-hero-content h1 { font-size: 52px; font-weight: 800; color: var(--text); margin-bottom: 16px; }
+    .hero-role { font-size: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,169,110,0.8); margin: 0 0 12px; }
+    .hero-experience { font-size: 14px; color: var(--text-muted); margin: 0 0 8px; }
+    .hero-location { font-size: 14px; color: var(--text-muted); margin: 0 0 24px; }
+    
+    .linkedin-link { display: inline-block; padding: 14px 28px; background: rgba(100,150,255,0.15); border: 1px solid rgba(100,150,255,0.3); border-radius: 12px; color: rgba(100,150,255,0.9); text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s ease; margin-top: 20px; }
+    .linkedin-link:hover { background: rgba(100,150,255,0.25); border-color: rgba(100,150,255,0.5); }
+    
+    .founder-story { max-width: 800px; }
+    .story-section { margin-bottom: 60px; }
+    .story-section h2 { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 20px; }
+    .story-section p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
+    .story-section p:last-child { margin-bottom: 0; }
+    
+    .story-list { list-style: none; padding: 0; margin: 0; }
+    .story-list li { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 12px; padding-left: 24px; position: relative; }
+    .story-list li::before { content: '→'; position: absolute; left: 0; color: rgba(200,169,110,0.6); }
+    
+    @media (max-width: 768px) {
+      .founder-hero { grid-template-columns: 1fr; gap: 40px; margin-bottom: 60px; }
+      .founder-hero-image { aspect-ratio: 0.8; }
+      .hero-placeholder { font-size: 80px; }
+      .founder-hero-content h1 { font-size: 40px; }
+      .founder-story { max-width: 100%; }
+      .story-section h2 { font-size: 24px; }
+    }
+    
+    @media (max-width: 480px) {
+      .founder-detail { padding: 60px 0; }
+      .hero-placeholder { font-size: 60px; }
+      .founder-hero-content h1 { font-size: 32px; margin-bottom: 12px; }
+      .hero-role { font-size: 16px; }
+      .story-section h2 { font-size: 20px; }
+      .story-section p { font-size: 15px; }
+      .story-list li { font-size: 15px; }
+    }
+  </style>
+</body>
+</html>

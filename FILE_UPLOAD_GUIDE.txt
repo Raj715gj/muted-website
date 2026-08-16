@@ -1,0 +1,205 @@
+================================================================================
+                    MUTED-WEBSITE PROJECT - COMPLETE FILE LIST
+                    All Files Ready for GitHub Upload
+================================================================================
+
+PROJECT NAME: muted-website
+TOTAL FILES: 30+ files
+GITHUB REPO: Create on https://github.com/new
+
+================================================================================
+ROOT LEVEL FILES (14 files)
+================================================================================
+
+1. ✅ index.html
+   - Main homepage HTML file
+   - Size: Core website
+
+2. ✅ package.json
+   - Node.js dependencies configuration
+   - Contains all npm packages needed
+
+3. ✅ package-lock.json
+   - Locked dependency versions
+   - Ensures consistent installations
+
+4. ✅ server.js
+   - Main server file
+   - Handles backend logic
+
+5. ✅ script.js
+   - Frontend JavaScript
+   - Client-side functionality
+
+6. ✅ styles.css
+   - Main stylesheet
+   - Website styling
+
+7. ✅ legal.css
+   - Legal pages styling
+   - Used for terms, privacy, refund pages
+
+8. ✅ robots.txt
+   - Search engine instructions
+   - SEO configuration
+
+9. ✅ sitemap.xml
+   - Website sitemap
+   - Helps search engines crawl
+
+10. ✅ SETUP_GUIDE.md
+    - Setup instructions
+    - Development guide
+
+11. ✅ PRODUCTION_GUIDE.md
+    - Production deployment guide
+    - Launch instructions
+
+12. ✅ .gitignore
+    - Files to exclude from Git
+    - Excludes node_modules, .env, etc.
+
+13. ✅ .env.example
+    - Environment variables template
+    - Configuration example
+
+14. ✅ .env
+    - Actual environment variables
+    - Sensitive config (keep secure)
+
+================================================================================
+HTML PAGE FILES (4 files)
+================================================================================
+
+15. ✅ founder-chidamber.html
+    - Founder profile page
+
+16. ✅ founder-rakesh.html
+    - Founder profile page
+
+17. ✅ founder-ravichandra.html
+    - Founder profile page
+
+18. ✅ privacy-policy.html
+    - Privacy policy page
+
+19. ✅ refund-policy.html
+    - Refund policy page
+
+20. ✅ terms-of-service.html
+    - Terms of service page
+
+================================================================================
+JAVASCRIPT TEST & SERVER FILES (3 files)
+================================================================================
+
+21. ✅ e2e_create_order.js
+    - End-to-end testing file
+    - Order creation tests
+
+22. ✅ rzp_server_test.js
+    - Razorpay server testing
+    - Payment gateway tests
+
+23. ✅ test-order-email.mjs
+    - Email testing module
+    - Order email verification
+
+================================================================================
+IMAGES FOLDER (16 image files)
+================================================================================
+
+images/
+├── ✅ DP-logo.jpeg
+├── ✅ Hepa-Filter.png
+├── ✅ hero-bg.jpg
+├── ✅ home.jpeg
+├── ✅ kitchen.jpeg
+├── ✅ logo.png
+├── ✅ Muted-Aero.png
+├── ✅ office.jpeg
+├── ✅ product.png
+├── ✅ school.jpeg
+├── ✅ Sign-Autho.jpeg
+├── ✅ signatory.jpeg
+├── ✅ signature.png
+├── ✅ traffic.jpeg
+├── ✅ winter-smog.jpeg
+└── issues/ (subfolder)
+
+================================================================================
+CONFIGURATION FOLDERS (Will be excluded from Git)
+================================================================================
+
+❌ node_modules/
+   - Dependencies (auto-installed via npm install)
+   - NOT uploaded to GitHub
+
+❌ .venv/
+   - Python virtual environment
+   - NOT uploaded to GitHub
+
+❌ .vscode/
+   - VS Code settings
+   - NOT uploaded to GitHub
+
+================================================================================
+FILES SUMMARY
+================================================================================
+
+📁 Total Files to Upload: ~30 files
+📦 Total Size: ~5-10 MB (excluding node_modules)
+
+✅ Core Files: 6 files (HTML, CSS, JS, JSON)
+✅ Documentation: 2 files (GUIDES)
+✅ Policy Pages: 4 files (HTML)
+✅ Tests: 3 files (JS)
+✅ Config: 3 files (.env, .gitignore, etc.)
+✅ Images: 15+ files (JPG, PNG)
+✅ SEO: 2 files (robots.txt, sitemap.xml)
+
+================================================================================
+UPLOAD INSTRUCTIONS
+================================================================================
+
+STEP 1: Your GitHub Username
+   👉 Reply with your GitHub username
+
+STEP 2: Automatic Upload
+   I will run these commands:
+   ✓ git init
+   ✓ git add .
+   ✓ git commit -m "Initial commit"
+   ✓ git remote add origin https://github.com/USERNAME/muted-website.git
+   ✓ git push -u origin main
+
+STEP 3: Create GitHub Repository
+   Go to https://github.com/new
+   - Repository name: muted-website
+   - Description: Your website
+   - Click "Create repository"
+
+STEP 4: Push to GitHub
+   Run: git push -u origin main
+
+================================================================================
+WHAT GETS EXCLUDED (Not Uploaded)
+================================================================================
+
+These folders/files are in .gitignore and WON'T be uploaded:
+
+❌ node_modules/        → Auto-installed from package.json
+❌ .venv/               → Python environment (recreated if needed)
+❌ .vscode/             → Personal VS Code settings
+❌ muted-receipt.pdf    → Excluded by .gitignore
+❌ upload-to-github.ps1 → Helper script (optional)
+
+================================================================================
+READY FOR GITHUB? ✅
+================================================================================
+
+All your project files are ready to upload!
+
+👉 NEXT STEP: Give me your GitHub username and I'll upload everything!
+
+================================================================================

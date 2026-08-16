@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: 
+
+Sitemap: https://mutedaeroone.com/sitemap.xml
+
+# Allow search engines to index all content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
