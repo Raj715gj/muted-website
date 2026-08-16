@@ -14,7 +14,7 @@ const API_BASE = isLocalBackendPreview
   : window.location.origin;
 
 // ✅ GITHUB PAGES MODE - Static deployment without backend
-const GITHUB_PAGES_MODE = true;
+const GITHUB_PAGES_MODE = false;
 let RAZORPAY_KEY = null;
 let configPromise = null;
 let configLoaded = false;
