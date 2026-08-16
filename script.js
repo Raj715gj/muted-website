@@ -13,7 +13,9 @@ const API_BASE = isLocalBackendPreview
   ? 'http://localhost:3000'
   : window.location.origin;
 
-let RAZORPAY_KEY = null; // fetched from /config at runtime
+// ✅ GITHUB PAGES MODE - Static deployment without backend
+const GITHUB_PAGES_MODE = true;
+let RAZORPAY_KEY = null;
 let configPromise = null;
 let configLoaded = false;
 let configLoadError = null;
@@ -453,6 +455,42 @@ document.addEventListener("keydown", (e) => {
 // ===== PRE-ORDER FORM SUBMIT → RAZORPAY =====
 async function handlePreorder(e, method = 'standard') {
   if (e && e.preventDefault) e.preventDefault();
+
+  // ✅ GITHUB PAGES MODE: Show static success message
+  if (GITHUB_PAGES_MODE) {
+    const name = document.getElementById("preName").value.trim();
+    const email = document.getElementById("preEmail").value.trim();
+    const phone = document.getElementById("prePhone").value.trim();
+    
+    if (!name || !email || !phone) {
+      showFriendlyError('Please fill in all required fields.');
+      return;
+    }
+    
+    // Save to browser storage
+    const preorder = {
+      name,
+      email,
+      phone,
+      date: new Date().toLocaleString(),
+      amount: selectedPrice * selectedQuantity
+    };
+    
+    let preorders = JSON.parse(localStorage.getItem('muted_preorders') || '[]');
+    preorders.push(preorder);
+    localStorage.setItem('muted_preorders', JSON.stringify(preorders));
+    
+    // Show success
+    showFriendlySuccess(`✅ Pre-order received! Your reservation for ₹${selectedPrice * selectedQuantity} is confirmed. We'll email you at ${email} soon!`);
+    
+    // Clear form
+    document.getElementById("preName").value = '';
+    document.getElementById("preEmail").value = '';
+    document.getElementById("prePhone").value = '';
+    document.getElementById("shippingAddress").value = '';
+    closePreorderModal();
+    return;
+  }
 
   try {
     console.log('handlePreorder invoked', { method });
@@ -964,6 +1002,18 @@ function showFriendlyError(msg) {
     message.textContent = msg && (typeof msg === 'string') ? msg : (JSON.stringify(msg) || String(msg));
     m.style.display = 'flex';
   } catch (e) { console.error('showFriendlyError failed', e); alert(msg); }
+}
+
+function showFriendlySuccess(msg) {
+  debugLog('friendly.success', msg);
+  try {
+    const m = ensureErrorModal();
+    const message = document.getElementById('mutedErrorMessage');
+    message.textContent = msg && (typeof msg === 'string') ? msg : (JSON.stringify(msg) || String(msg));
+    message.style.color = '#22c55e';
+    m.style.display = 'flex';
+    setTimeout(() => { message.style.color = '#ff0000'; }, 3000);
+  } catch (e) { console.error('showFriendlySuccess failed', e); alert(msg); }
 }
 
 // Global error capture so checkout/internal errors appear in the debug panel
